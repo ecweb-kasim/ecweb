@@ -1,0 +1,101 @@
+/* Sidebar Menu Custom CSS like Bootstrap 5.3 */
+.sidebar {
+    width: 220px;
+    background-color: #373636; /* Sidebar Background */
+    height: 100%;
+    position: fixed;
+    top: 40px; /* Below Header */
+    left: 0;
+    overflow-y: auto; /* Scroll if content too much */
+    z-index: 900; /* Under header */
+    padding-top: 10px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar ul li {
+    margin-bottom: 5px; /* Space between menu items */
+}
+
+.sidebar ul li a {
+    display: block;
+    padding: 10px 20px;
+    color: #ffffff; /* White Text */
+    text-decoration: none;
+    transition: background 0.3s ease; /* Smooth Hover */
+    border-radius: 5px; /* Bootstrap Rounded Effect */
+}
+
+.sidebar ul li a:hover {
+    background-color: #007bff; /* Blue Hover like Bootstrap */
+    color: #ffffff; /* White Text */
+}
+
+.sidebar ul li.active a {
+    background-color: #2968b4; /* Active Color */
+    color: #ffffff; /* White Text */
+    font-weight: bold; /* Bold Text */
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.8); /* Bootstrap Shadow */
+}
+
+.sidebar .dropdown-menu {
+    background-color: #333333; /* Dropdown Background */
+    padding-left: 20px;
+}
+
+.sidebar .dropdown-menu li a {
+    padding: 8px 16px;
+    color: #ffffff;
+}
+
+.sidebar .dropdown-menu li a:hover {
+    background-color: #2968b4; /* Hover Dropdown */
+    color: #ffffff;
+}
+
+.sidebar .dropdown-menu li.active a {
+    background-color: #2968b4; /* Active Dropdown */
+    font-weight: bold;
+    color: #ffffff;
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        display: none; /* Hidden Sidebar in Small Screens */
+    }
+}
+/* Dropdown Menu */
+.sidebar .dropdown-menu {
+    display: none; /* Hidden by default */
+    padding-left: 20px; /* Indent submenu */
+    background-color: #373636; /* Same as sidebar */
+}
+
+.sidebar .dropdown-menu.show {
+    display: block; /* Show Dropdown when clicked */
+}
+
+.sidebar .dropdown-menu li a {
+    padding: 8px 20px;
+    color: #ffffff; /* White Text */
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.sidebar .dropdown-menu li a:hover {
+    background-color: #2968b4; /* Blue Background */
+    color: #ffffff; /* White Text */
+}
+/* Smooth rotation animation */
+.dropdown-icon {
+    transition: transform 0.3s ease;
+}
+
+/* Rotate dropdown icon when expanded */
+.dropdown-toggle[aria-expanded="true"] .dropdown-icon {
+    transform: rotate(180deg);
+}
