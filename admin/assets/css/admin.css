@@ -1,6 +1,6 @@
 /* Header */
 header {
-    background-color: #333;
+    background-color: #0f0cc1;
     color: white;
     padding: 10px 20px;
     text-align: center;
@@ -17,21 +17,58 @@ header h1 {
     font-size: 24px;
 }
 
+.header-content {
+    display: flex;
+    justify-content: center; /* Keep the centered alignment */
+    align-items: center; /* Vertically align items */
+}
+
+.notification-area {
+    position: relative;
+    display: inline-flex; /* Use flex to align icon and badge */
+    margin-left: 10px; /* Space between title and icon */
+}
+
+.notification-icon {
+    cursor: pointer;
+    font-size: 24px;
+    color: #fff; /* Matches the header text color */
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: red;
+    color: white;
+    padding: 2px 6px;
+    border-radius: 50%;
+    font-size: 12px;
+}
+
 /* Sidebar */
+/* [Your existing sidebar styles would go here] */
 
 /* Footer */
 footer {
-    background-color: #333;
+    background-color: #2c3e50;
     color: white;
     text-align: center;
     padding: 10px;
     position: fixed;
     bottom: 0;
+    left: 0;
     width: 100%;
     z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 footer p {
     margin: 0;
     font-size: 14px;
+    color: white;
 }
+
