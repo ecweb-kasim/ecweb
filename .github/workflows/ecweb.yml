@@ -1,0 +1,29 @@
+name: Deploy to EC2
+
+on:
+  push:
+    branches:
+      - main  # Trigger workflow on pushes to the 'main' branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest  # The environment in which the job runs
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2  # Pulls the latest code from GitHub
+
+      - name: Set up SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.EC2_SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa  # Uses the SSH private key from GitHub secrets
+          chmod 600 ~/.ssh/id_rsa  # Ensures the key has correct permissions
+          ssh-keyscan -t rsa your-ec2-ip >> ~/.ssh/known_hosts  # Adds EC2 host to known hosts
+
+      - name: Deploy to EC2
+        run: |
+          ssh -i ~/.ssh/id_rsa ec2-user@your-ec2-ip << 'EOF'
+            cd /path/to/your/project && \
+            git pull origin main && \
+            sudo systemctl restart your-web-service  # Restart the service after deploying
+          EOF
